@@ -1,0 +1,2 @@
+osonbot
+deep-translator

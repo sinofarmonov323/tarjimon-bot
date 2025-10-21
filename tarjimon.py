@@ -102,17 +102,14 @@ def handle_japanese(message):
     elif language['to'] is None:
         language['to'] = 'ja'
         return f"Bot matningizni tarjima qilishga tayyor. Matningizni kiriting"
-    
 
 def reset_languages(message):
     language['from'] = None
     language['to'] = None
     return "matningiz qaysi tildaligini tanlang"
 
-def start(message):
-    return f"Salom {message['from']['first_name']}!\nmen Tarjimon botman.\nmatningiz qaysi tildaligini tanlang"
 
-bot.when("/start", start, reply_markup=languages_button)
+bot.when("/start", "Salom {first_name}\nmen Tarjimon botman.\nmatningiz qaysi tildaligini tanlang", reply_markup=languages_button)
 
 bot.when("🔄 Tilni O'zgartirish", reset_languages, reply_markup=languages_button)
 
